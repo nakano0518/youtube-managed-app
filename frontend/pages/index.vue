@@ -8,6 +8,15 @@
             />
           </div>
       </div>
+      <nav class="pagination">
+        <a
+          href.prevent="#"
+          class="pagination-next"
+          @click="loadMore"
+        >
+        More
+        </a>
+      </nav>
   </section>
 </template>
 
@@ -20,6 +29,20 @@
       items() {
         //console.log(this.$store.getters.getPopularVideos)
         return this.$store.getters.getPopularVideos
+      },
+      nextPageToken() {
+        return this.$store.getters.getMeta.nextPageToken
+      },
+    },
+    methods: {
+      loadMore() {
+        const payload = {
+          uri: ROUTES.GET.POPULARS,
+          params: {
+            pageToken: this.nextPageToken
+          }
+        }
+        this.$store.dispatch('fetchPopularVideos', payload)
       }
     },
     async fetch({store}) {
@@ -40,6 +63,20 @@
     background-color: #fff;
     padding: 1rem 1rem;
     max-width: 900px;
+  }
+  .pagination {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  a.pagination-next {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    background-color: #fff;
+
   }
 </style>
 

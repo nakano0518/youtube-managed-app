@@ -24,5 +24,8 @@ export const mutations = {
 export const getters = { //Vueコンポーネントでstateを参照するためのgetter
     getPopularVideos(state) {
         return state.items 
-    }
+    },
+    getMeta(state) {
+        return state.meta
+    },
 }
