@@ -1,25 +1,24 @@
 <template>
   <section class="section">
-    <div class="container">
-      <div class="block">
-          <div class="block video-block" v-for="item in items" :key="item.id">
+      <div class="items">
+          <div class="item" v-for="item in items" :key="item.id">
             <AppVideo
               :item="item"
               :video-id="item.id" 
             />
           </div>
       </div>
-    </div>
   </section>
 </template>
 
 <script>
   import ROUTES from '~/routes/api';
-  import AppVideo from '~/components/AppVideo';
+  import AppVideo from '../components/AppVideo';
   export default {
     components: {AppVideo},
     computed: {
       items() {
+        //console.log(this.$store.getters.getPopularVideos)
         return this.$store.getters.getPopularVideos
       }
     },
@@ -36,7 +35,10 @@
 </script>
 
 <style scoped>
-  .video-block {
+  .item {
+    margin-top: 1rem;
+    background-color: #fff;
+    padding: 1rem 1rem;
     max-width: 900px;
   }
 </style>

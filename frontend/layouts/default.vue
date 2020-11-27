@@ -3,11 +3,13 @@
 <template>
   <div id="app">
     <TheHeader />
-    <div class="columns">
-      <TheSidebar />
-    </div>
-    <div class="column content">
-      <nuxt />
+    <div class="row">
+      <div class="col-2">
+        <TheSidebar />
+      </div>
+      <div class="col-10">
+        <nuxt />
+      </div>
     </div>
   </div>
 </template>
@@ -26,10 +28,8 @@ export default {
 <style scoped>
   #app {
     min-height: 100vh;
-    background: #FAFAFA
-  }
-  .columns {
-    min-height: 100vh;
+    width: 100vw;
+    background: #ccc
   }
 </style>
 

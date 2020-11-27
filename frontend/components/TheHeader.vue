@@ -5,8 +5,18 @@
                 class="navbar-item subtitle is-4"
                 to="/"
             >
-            Youtube Player
+            <strong> Youtube Player</strong>
             </nuxt-link>
         </div>
     </nav>
 </template>  
+
+<style scoped>
+  .navbar {
+    background: #fff
+  }
+  strong {
+      color: #555;
+      font-size: 1.5rem;
+  }
+</style>

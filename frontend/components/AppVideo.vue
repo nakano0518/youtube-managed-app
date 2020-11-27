@@ -2,27 +2,17 @@
     <nuxt-link
         :to="`/video/${videoId}`"
     >
-        <div class="box video-box">
-            <article class="media">
-                <div class="media-left">
-                    <figure class="image is-220x120">
-                        <img :src="item.snippet.thumbnails.medium.url" alt="Image">
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            <strong>{{item.snippet.title}}</strong>
-                            <br>
-                            <small>{{item.snippet.publishedAt}}</small>
-                            <small>{{item.snippet.channelTitle}}</small>
-                            <br>
-                            {{ item.snippet.description | omit }}
-                        </p>
-                    </div>
-                </div>
-            </article>
-        </div>
+        <article>
+            <img :src="item.snippet.thumbnails.medium.url" alt="Image">
+            <p>
+                <strong>{{item.snippet.title}}</strong>
+                <br>
+                <small>{{item.snippet.publishedAt}}</small>
+                <small>{{item.snippet.channelTitle}}</small>
+                <br>
+                {{ item.snippet.description | omit }}
+            </p>
+        </article>
     </nuxt-link>
 </template>
 
@@ -51,11 +41,22 @@ export default {
 </script>
 
 <style scoped>
-    .video-box {
-        max-width: 900px;
+    a {
+        text-decoration: none;
+        color: #333;
     }
-    .is-220x120 {
+    a:hover {
+        color: #aaa;
+    }
+    article {
+        display: flex;
+    }
+    img {
         width: 220px;
         height: 120px;
+        border: 1px solid #333;
+    }
+    p {
+        padding-left: 1.5rem;
     }
 </style>
