@@ -1,3 +1,14 @@
+require('dotenv').config();
+const {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID
+} = process.env;
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -18,7 +29,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/vue-youtube'
+    '~/plugins/vue-youtube',
+    '~/plugins/cookies-to-state',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -31,7 +43,10 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     'bootstrap-vue/nuxt',
-    "@nuxtjs/axios",
+    '@nuxtjs/axios',
+    '@nuxtjs/bulma',
+    'cookie-universal-nuxt',
+    '@nuxtjs/dotenv'
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -44,5 +59,15 @@ export default {
   },
   proxy: {
     '/api': '/'
+  },
+  env: {
+    API_KEY,
+    API_KEY,
+    AUTH_DOMAIN,
+    DATABASE_URL,
+    PROJECT_ID,
+    STORAGE_BUCKET,
+    MESSAGING_SENDER_ID,
+    APP_ID,
   },
 }
