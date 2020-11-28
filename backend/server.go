@@ -1,6 +1,7 @@
 package main
 
 import (
+	"youtube-managed-app/backend/middlewares"
 	"youtube-managed-app/backend/routes"
 
 	"github.com/joho/godotenv"
@@ -23,6 +24,7 @@ func main() {
 	//Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.CORS())
+	e.Use(middlewares.YoutubeService()) //middlewaresフォルダ以下に作成したYoutubeAPIに接続するサービス
 
 	//Routes
 	routes.Init(e)
