@@ -1,5 +1,6 @@
 /backend/vendor/*
 /backend/.env
+/backend/youtube-managed-app-a9642af833ad.json
 
 /frontend/node_modules/*
 /frontend/.env

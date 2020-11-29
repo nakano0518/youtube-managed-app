@@ -1,0 +1,22 @@
+# お気に入り機能をlocalで試すだけのMySQLコンテナを作成
+version: "3.1"
+
+services:
+  db:
+    image: mysql:5.7
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    environment:
+      - MYSQL_DATABASE=youtube
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_USER=default
+      - MYSQL_PASSWORD=password
+      - TZ=Asia/Tokyo
+    ports:
+      - "4306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:

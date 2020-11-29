@@ -24,7 +24,10 @@ func main() {
 	//Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.CORS())
-	e.Use(middlewares.YoutubeService()) //middlewaresフォルダ以下に作成したYoutubeAPIに接続するサービス
+	//Custom Middleware(middlewaresフォルダ以下)
+	e.Use(middlewares.YoutubeService())
+	e.Use(middlewares.DatabaseService())
+	e.Use(middlewares.Firebase())
 
 	//Routes
 	routes.Init(e)
