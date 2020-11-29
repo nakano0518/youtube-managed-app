@@ -3,10 +3,11 @@ export const ROUTES = {
         POPULARS: '/api/popular',
         VIDEO: '/api/video/:id',
         RELATED: '/api/related/:id',
-        SEARCH: '/api/search'
+        SEARCH: '/api/search',
+        FAVORITE: '/api/favorite',
     },
     POST: {
-        TOGGLE_FAVORITE: '/api/favorite/:id/toggle'
+        TOGGLE_FAVORITE: '/api/favorite/:id/toggle',
     }
 };
 
