@@ -19,6 +19,7 @@
     "core-js": "^3.6.5",
     "firebase": "^8.1.1",
     "nuxt": "^2.14.6",
+    "qs": "^6.9.4",
     "vue-youtube": "^1.4.0"
   },
   "devDependencies": {

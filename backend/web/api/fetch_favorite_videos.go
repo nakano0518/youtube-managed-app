@@ -5,7 +5,6 @@ import (
 	"youtube-managed-app/backend/models"
 
 	"firebase.google.com/go/auth"
-
 	"github.com/labstack/echo"
 	"github.com/sirupsen/logrus"
 	"github.com/valyala/fasthttp"

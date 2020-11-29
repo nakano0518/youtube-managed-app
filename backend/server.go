@@ -15,22 +15,24 @@ func init() {
 	if err != nil {
 		logrus.Fatal("Error loading .env")
 	}
+
 	logrus.SetLevel(logrus.DebugLevel)
 	logrus.SetFormatter(&logrus.JSONFormatter{})
 }
 
 func main() {
 	e := echo.New()
+
 	//Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.CORS())
-	//Custom Middleware(middlewaresフォルダ以下)
-	e.Use(middlewares.YoutubeService())
+	e.Use(middlewares.YouTubeService())
 	e.Use(middlewares.DatabaseService())
 	e.Use(middlewares.Firebase())
 
-	//Routes
+	// Routes
 	routes.Init(e)
-	//Start Server
+
+	// Start server
 	e.Logger.Fatal(e.Start(":8080"))
 }

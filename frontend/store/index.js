@@ -20,7 +20,9 @@ export const actions = {
   },
   async findVideo({commit}, payload) {
     const client = createRequestClient(this.$axios, this.$cookies, this)
+    console.log(payload.uri)
     const res = await client.get(payload.uri)
+    console.log(res)
     const params = {
       ...res.video_list,
     }

@@ -10,7 +10,6 @@ import (
 	"google.golang.org/api/option"
 )
 
-//GoのbackendからFirebaseの機能を利用できる(IAMロール機能を有する)インスタンスを作成する
 func Firebase() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {

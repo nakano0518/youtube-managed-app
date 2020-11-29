@@ -1,33 +1,37 @@
 <template>
   <section class="section">
-      <div class="items">
-          <div class="item" v-for="item in items" :key="item.id">
-            <AppVideo
+    <div class="container">
+      <div class="block">
+        <div class="block video-block" v-for="item in items" :key="item.id">
+          <AppVideo
               :item="item"
-              :video-id="item.id" 
-            />
-          </div>
+              :video-id="item.id"
+          />
+        </div>
       </div>
-      <nav class="pagination">
-        <a
-          href.prevent="#"
-          class="pagination-next"
-          @click="loadMore"
-        >
-        More
-        </a>
-      </nav>
+
+      <div class="block">
+        <nav class="pagination">
+          <a
+              href.prevent="#"
+              class="pagination-next"
+              @click="loadMore"
+          >
+            More
+          </a>
+        </nav>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-  import ROUTES from '~/routes/api';
-  import AppVideo from '../components/AppVideo';
+  import ROUTES from '~/routes/api'
+  import AppVideo from "~/components/AppVideo";
   export default {
     components: {AppVideo},
     computed: {
       items() {
-        //console.log(this.$store.getters.getPopularVideos)
         return this.$store.getters.getPopularVideos
       },
       nextPageToken() {
@@ -58,25 +62,7 @@
 </script>
 
 <style scoped>
-  .item {
-    margin-top: 1rem;
-    background-color: #fff;
-    padding: 1rem 1rem;
+  .video-block {
     max-width: 900px;
   }
-  .pagination {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  a.pagination-next {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    border: 1px solid #333;
-    border-radius: 0.5rem;
-    padding: 0.3rem 0.5rem;
-    background-color: #fff;
-
-  }
 </style>
-

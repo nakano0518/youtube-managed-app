@@ -16,6 +16,7 @@ func main() {
 	}
 
 	//*gorm.DBの有するAutoMigrateは引数にモデル(のポインタ)を与えることで、モデルの定義を読み取りマイグレーションを実行する
+	//テーブル定義
 	db.Debug().AutoMigrate(&models.User{})
 	db.Debug().AutoMigrate(&models.Favorite{})
 }

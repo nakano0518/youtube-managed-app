@@ -84,6 +84,9 @@
         return this.$store.getters.isLoggedIn
       }
     },
+    mounted() {
+        console.log(this.$store.getters.getVideo)
+    },
     methods: {
       async toggleFavorite() {
         await this.$store.dispatch('toggleFavorite', {

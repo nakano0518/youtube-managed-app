@@ -22,8 +22,8 @@ func ToggleFavoriteVideo() echo.HandlerFunc {
 		token := c.Get("auth").(*auth.Token)
 		user := models.User{}
 		if dbs.DB.Table("users").
-			Where(models.User{UID: token.UID}).First(&user).RecordNotFound() { //userテーブルにトークンから取得したUIDを保持するレコードが存在しない場合
-			//新規ユーザーをusersテーブルに格納する
+			Where(models.User{UID: token.UID}).First(&user).RecordNotFound() {
+
 			user = models.User{UID: token.UID}
 			dbs.DB.Create(&user)
 		}
@@ -31,12 +31,12 @@ func ToggleFavoriteVideo() echo.HandlerFunc {
 		favorite := models.Favorite{}
 		isFavorite := false
 		if dbs.DB.Table("favorites").
-			Where(models.Favorite{UserId: user.ID, VideoId: videoId}).First(&favorite).RecordNotFound() { //favoritesテーブルに条件に合致するレコードが存在しない場合=>追加
+			Where(models.Favorite{UserId: user.ID, VideoId: videoId}).First(&favorite).RecordNotFound() {
 
 			favorite = models.Favorite{UserId: user.ID, VideoId: videoId}
 			dbs.DB.Create(&favorite)
 			isFavorite = true
-		} else { //favoritesテーブルに条件に合致するレコードが存在する場合=>削除
+		} else {
 			dbs.DB.Delete(&favorite)
 		}
 
