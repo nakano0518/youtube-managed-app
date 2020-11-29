@@ -19,5 +19,6 @@ func Init(e *echo.Echo) {
 	fg := g.Group("/favorite", middlewares.FirebaseGuard()) //'/api'のグループを更にグルーピング// '/api/favorite'配下にアクセスする場合middlewares.FirebaseGuard()を経由している必要がある
 	{
 		fg.POST("/:id/toggle", api.ToggleFavoriteVideo())
+		fg.GET("", api.FetchFavoriteVideos())
 	}
 }
